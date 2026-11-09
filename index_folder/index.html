@@ -19,7 +19,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#matches">Matches</a></li>
-            <li><a href="#booking">Book Tickets</a></li>
+            <li><a href="booking.html">Book Tickets</a></li>
             <li><a href="#guidelines">Guidelines</a></li>
         </ul>
     </nav>
@@ -35,9 +35,14 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <h2>Experience the Thrill of IPL 2026!</h2>
+
             <p>Watch your favourite teams live in the stadium.</p>
+
             <p>Book your tickets and enjoy unforgettable cricket action!</p>
-            <a href="#booking" class="btn">Book Your Tickets</a>
+
+            <a href="booking.html" class="btn">
+                Book Your Tickets
+            </a>
         </section>
 
         <!-- MATCH SELECTION -->
@@ -50,13 +55,21 @@
                 <label for="match">Choose a Match:</label>
 
                 <select id="match" name="match" required>
+
                     <option value="">-- Select Match --</option>
+
                     <option value="RCB vs MI">RCB vs Mumbai Indians</option>
+
                     <option value="CSK vs KKR">CSK vs Kolkata Knight Riders</option>
+
                     <option value="DC vs SRH">Delhi Capitals vs Sunrisers Hyderabad</option>
+
                     <option value="RR vs PBKS">Rajasthan Royals vs Punjab Kings</option>
+
                     <option value="SRH vs CSK">Sunrisers Hyderabad vs CSK</option>
+
                     <option value="KKR vs RCB">KKR vs RCB</option>
+
                 </select>
 
                 <button type="button" onclick="showMatch()">
@@ -75,6 +88,7 @@
             <h2>Match Schedule</h2>
 
             <div class="table-container">
+
                 <table>
 
                     <thead>
@@ -87,6 +101,7 @@
                     </thead>
 
                     <tbody>
+
                         <tr>
                             <td>RCB vs MI</td>
                             <td>April 5, 2026</td>
@@ -128,48 +143,12 @@
                             <td>7:30 PM</td>
                             <td>Eden Gardens, Kolkata</td>
                         </tr>
+
                     </tbody>
 
                 </table>
+
             </div>
-
-        </section>
-
-        <!-- TICKET BOOKING FORM -->
-        <section id="booking" class="card">
-
-            <h2>Book Your Tickets</h2>
-
-            <form id="bookingForm">
-
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <label for="ticket">Number of Tickets:</label>
-                <select id="ticket" name="ticket">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-
-                <label for="stand">Select Stand:</label>
-                <select id="stand" name="stand">
-                    <option>General Stand</option>
-                    <option>Premium Stand</option>
-                    <option>VIP Stand</option>
-                </select>
-
-                <button type="submit">Book Tickets</button>
-
-            </form>
 
         </section>
 
@@ -212,8 +191,11 @@
 
     <!-- FOOTER -->
     <footer>
+
         <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
+
         <p>Enjoy the game. Support your team!</p>
+
     </footer>
 
     <!-- JAVASCRIPT CONNECTION -->

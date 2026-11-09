@@ -4,11 +4,11 @@
 ================================= */
 
 :root {
-    --primary: #101d40;
-    --accent: #ff6b00;
-    --background: #f4f6fb;
-    --text: #263238;
-    --white: #ffffff;
+    --primary: #383fc9;
+    --accent: #4745b2;
+    --background: #fbf4f6;
+    --text: #051616;
+    --white: #faf9fb;
 }
 
 /* =================================
@@ -334,3 +334,63 @@ footer p {
         padding: 18px;
     }
 }
+/* BOOKING PAGE */
+
+.booking-container {
+    margin-top: 40px;
+}
+
+.booking-container h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.booking-container form {
+    background: var(--white);
+}
+
+.booking-container input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.booking-container button {
+    margin-right: 10px;
+}
+
+/* BOOKING PAGE IMPROVEMENTS */
+
+.booking-container {
+    margin-top: 40px;
+}
+
+.booking-container h2 {
+    text-align: center;
+}
+
+/* Radio button alignment */
+
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+/* Button spacing */
+
+.booking-container button {
+    margin: 5px;
+}
+
