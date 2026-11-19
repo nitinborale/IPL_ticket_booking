@@ -509,3 +509,22 @@ footer p {
 body {
     background-color: lightblue;
 }
+
+#toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #383fc9;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 9999;
+}
+
+#toast.show {
+    opacity: 1;
+    visibility: visible;
+}
