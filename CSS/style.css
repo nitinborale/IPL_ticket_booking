@@ -65,7 +65,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--accent);
+    color: #ffd166;
 }
 
 /* =================================
@@ -99,7 +99,7 @@ main {
 }
 
 /* =================================
-   6. HERO / BANNER SECTION
+   6. HERO SECTION
 ================================= */
 
 .hero {
@@ -122,6 +122,8 @@ main {
     color: var(--white);
     font-size: 36px;
     margin-bottom: 15px;
+    border: none;
+    padding: 0;
 }
 
 .hero p {
@@ -152,6 +154,18 @@ button:hover,
 .btn:hover {
     background: var(--primary);
     transform: translateY(-3px);
+}
+
+/* BOOK BUTTON */
+
+.book-btn {
+    background: #e65100;
+    color: white;
+    padding: 10px 20px;
+}
+
+.book-btn:hover {
+    background: #bf360c;
 }
 
 /* =================================
@@ -259,11 +273,55 @@ input:focus,
 select:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 5px rgba(255, 107, 0, 0.3);
+    box-shadow: 0 0 5px rgba(71, 69, 178, 0.3);
 }
 
 /* =================================
-   12. GUIDELINES
+   12. BOOKING PAGE
+================================= */
+
+.booking-container {
+    margin-top: 40px;
+}
+
+.booking-container h1,
+.booking-container h2 {
+    text-align: center;
+    color: var(--primary);
+}
+
+.booking-container form {
+    background: var(--white);
+}
+
+.booking-container input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.booking-container button {
+    margin: 5px;
+}
+
+/* =================================
+   13. GUIDELINES
 ================================= */
 
 #guidelines ul {
@@ -275,7 +333,56 @@ select:focus {
 }
 
 /* =================================
-   13. FOOTER
+   14. TOAST NOTIFICATION
+================================= */
+
+#toast {
+    visibility: hidden;
+    opacity: 0;
+
+    min-width: 250px;
+    max-width: 90%;
+
+    background-color: #222;
+    color: white;
+
+    text-align: center;
+
+    padding: 15px 20px;
+    border-radius: 8px;
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    z-index: 2000;
+
+    transition: opacity 0.4s ease;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =================================
+   15. FOOTER
 ================================= */
 
 footer {
@@ -291,13 +398,17 @@ footer p {
 }
 
 /* =================================
-   14. RESPONSIVE DESIGN
+   16. RESPONSIVE DESIGN
 ================================= */
 
 @media (max-width: 768px) {
 
     header h1 {
         font-size: 25px;
+    }
+
+    nav {
+        padding: 14px;
     }
 
     nav ul {
@@ -333,33 +444,21 @@ footer p {
     form {
         padding: 18px;
     }
-}
-/* BOOKING PAGE */
 
-.booking-container {
-    margin-top: 40px;
-}
+    .radio-group {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 
-.booking-container h1 {
-    text-align: center;
-    color: var(--primary);
-    margin-bottom: 20px;
-}
+    #toast {
+        right: 5%;
+        bottom: 20px;
+        min-width: 90%;
+    }
 
-.booking-container form {
-    background: var(--white);
 }
 
-.booking-container input[type="radio"] {
-    width: auto;
-    margin-right: 8px;
-}
-
-.booking-container button {
-    margin-right: 10px;
-}
-
-/* BOOKING PAGE IMPROVEMENTS */
+/* ACTIVITY 3 - BOOKING FORM */
 
 .booking-container {
     margin-top: 40px;
@@ -367,14 +466,25 @@ footer p {
 
 .booking-container h2 {
     text-align: center;
+    border-left: none;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
 }
 
-/* Radio button alignment */
+.booking-container form {
+    max-width: 650px;
+}
+
+.booking-container input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
 
 .radio-group {
     display: flex;
     gap: 30px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin: 15px 0 25px;
 }
 
 .radio-group label {
@@ -383,14 +493,19 @@ footer p {
     gap: 8px;
 }
 
-.radio-group input[type="radio"] {
-    width: auto;
-    margin: 0;
+.booking-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-/* Button spacing */
-
-.booking-container button {
-    margin: 5px;
+.booking-buttons button[type="reset"] {
+    background: #555;
 }
 
+.booking-buttons button[type="reset"]:hover {
+    background: #333;
+}
+body {
+    background-color: lightblue;
+}

@@ -17,7 +17,7 @@
     <!-- NAVIGATION BAR -->
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#matches">Matches</a></li>
             <li><a href="booking.html">Book Tickets</a></li>
             <li><a href="#guidelines">Guidelines</a></li>
@@ -34,6 +34,7 @@
 
         <!-- HERO SECTION -->
         <section class="hero">
+
             <h2>Experience the Thrill of IPL 2026!</h2>
 
             <p>Watch your favourite teams live in the stadium.</p>
@@ -43,47 +44,36 @@
             <a href="booking.html" class="btn">
                 Book Your Tickets
             </a>
+
         </section>
 
         <!-- MATCH SELECTION -->
-        <section id="matches" class="card">
+      
+<section id="matches">
+    <h2>Select Your Match</h2>
 
-            <h2>Select Your Match</h2>
+    <div class="match-form">
+        <label for="matchSelect">Choose a Match:</label>
 
-            <form id="matchForm">
+        <select id="matchSelect">
+            <option value="">-- Select Match --</option>
+            <option value="RCB vs Mumbai Indians">RCB vs Mumbai Indians</option>
+            <option value="CSK vs Kolkata Knight Riders">CSK vs Kolkata Knight Riders</option>
+            <option value="Delhi Capitals vs Sunrisers Hyderabad">Delhi Capitals vs Sunrisers Hyderabad</option>
+            <option value="Rajasthan Royals vs Punjab Kings">Rajasthan Royals vs Punjab Kings</option>
+        </select>
 
-                <label for="match">Choose a Match:</label>
+        <button type="button" onclick="showMatch()">
+            View Match Details
+        </button>
 
-                <select id="match" name="match" required>
+        <p id="matchDetails"></p>
+    </div>
+</section>
 
-                    <option value="">-- Select Match --</option>
-
-                    <option value="RCB vs MI">RCB vs Mumbai Indians</option>
-
-                    <option value="CSK vs KKR">CSK vs Kolkata Knight Riders</option>
-
-                    <option value="DC vs SRH">Delhi Capitals vs Sunrisers Hyderabad</option>
-
-                    <option value="RR vs PBKS">Rajasthan Royals vs Punjab Kings</option>
-
-                    <option value="SRH vs CSK">Sunrisers Hyderabad vs CSK</option>
-
-                    <option value="KKR vs RCB">KKR vs RCB</option>
-
-                </select>
-
-                <button type="button" onclick="showMatch()">
-                    View Match Details
-                </button>
-
-            </form>
-
-            <p id="matchDetails"></p>
-
-        </section>
 
         <!-- MATCH SCHEDULE -->
-        <section class="card">
+        <section class="card" id="match-schedule">
 
             <h2>Match Schedule</h2>
 
@@ -97,6 +87,7 @@
                             <th>Date</th>
                             <th>Time</th>
                             <th>Venue</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -107,41 +98,47 @@
                             <td>April 5, 2026</td>
                             <td>7:30 PM</td>
                             <td>Wankhede Stadium, Mumbai</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                         <tr>
                             <td>CSK vs KKR</td>
                             <td>April 6, 2026</td>
                             <td>7:30 PM</td>
-                            <td>M. A. Chidambaram Stadium, Chennai</td>
+                            <td>Chennai</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                         <tr>
                             <td>DC vs SRH</td>
                             <td>April 7, 2026</td>
                             <td>7:30 PM</td>
-                            <td>Arun Jaitley Stadium, Delhi</td>
+                            <td>Delhi</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                         <tr>
                             <td>RR vs PBKS</td>
                             <td>April 8, 2026</td>
                             <td>7:30 PM</td>
-                            <td>Sawai Mansingh Stadium, Jaipur</td>
+                            <td>Jaipur</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                         <tr>
                             <td>SRH vs CSK</td>
                             <td>April 9, 2026</td>
                             <td>7:30 PM</td>
-                            <td>Rajiv Gandhi International Stadium, Hyderabad</td>
+                            <td>Hyderabad</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                         <tr>
                             <td>KKR vs RCB</td>
                             <td>April 10, 2026</td>
                             <td>7:30 PM</td>
-                            <td>Eden Gardens, Kolkata</td>
+                            <td>Kolkata</td>
+                            <td><a href="booking.html" class="btn book-btn">Book</a></td>
                         </tr>
 
                     </tbody>
@@ -191,15 +188,30 @@
 
     <!-- FOOTER -->
     <footer>
-
         <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
-
         <p>Enjoy the game. Support your team!</p>
-
     </footer>
 
     <!-- JAVASCRIPT CONNECTION -->
+    <script src="script.js"></script>
+    <script src="app.js"></script>
     <script src="../script.js"></script>
+
+<script>
+function showMatch() {
+    const match = document.getElementById("matchSelect").value;
+    const details = document.getElementById("matchDetails");
+
+    if (match === "") {
+        details.innerText = "Please select a match!";
+    } else {
+        details.innerText = "You selected: " + match;
+    }
+}
+</script>
+</body>
+</html>
+
 
 </body>
 </html>

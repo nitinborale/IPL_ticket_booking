@@ -8,18 +8,31 @@
 
     <title>IPL Ticket Booking Form</title>
 
-    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- CSS CONNECTION -->
+  <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
 
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#matches">Matches</a></li>
+            <li><a href="booking.html">Book Tickets</a></li>
+            <li><a href="index.html#guidelines">Guidelines</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER -->
     <header>
-        <h1>IPL Ticket Booking</h1>
+        <h1>IPL 2026 TICKET BOOKING</h1>
         <p>Book your favourite IPL match tickets!</p>
     </header>
 
     <main>
 
+        <!-- BOOKING FORM -->
         <section class="card booking-container">
 
             <h2>Ticket Booking Form</h2>
@@ -27,60 +40,101 @@
             <form action="#" method="get">
 
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name"
-                    placeholder="Enter your name"
-                    minlength="3" maxlength="30" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"
-                    placeholder="Enter your email" required>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    minlength="3"
+                    maxlength="40"
+                    required
+                >
+
+                <label for="email">Email Address:</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
 
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone"
-                    placeholder="10 digit phone number"
-                    pattern="[0-9]{10}" required>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter 10 digit phone number"
+                    pattern="[0-9]{10}"
+                    minlength="10"
+                    maxlength="10"
+                    required
+                >
 
                 <label for="match">Select Match:</label>
+
                 <select id="match" name="match" required>
-                    <option value="">Choose a match</option>
-                    <option>RCB vs MI</option>
-                    <option>CSK vs KKR</option>
-                    <option>DC vs SRH</option>
-                    <option>RR vs PBKS</option>
-                    <option>SRH vs CSK</option>
-                    <option>KKR vs RCB</option>
+
+                    <option value="">-- Select Your Match --</option>
+                    <option value="RCB vs MI">RCB vs Mumbai Indians</option>
+                    <option value="CSK vs KKR">CSK vs Kolkata Knight Riders</option>
+                    <option value="DC vs SRH">Delhi Capitals vs Sunrisers Hyderabad</option>
+                    <option value="RR vs PBKS">Rajasthan Royals vs Punjab Kings</option>
+                    <option value="SRH vs CSK">Sunrisers Hyderabad vs CSK</option>
+                    <option value="KKR vs RCB">KKR vs RCB</option>
+
                 </select>
 
-                <label for="stand">Stand Category:</label>
+                <label for="stand">Select Stand Category:</label>
+
                 <select id="stand" name="stand" required>
-                    <option value="">Choose stand</option>
-                    <option>General</option>
-                    <option>Premium</option>
-                    <option>VIP</option>
+
+                    <option value="">-- Select Stand --</option>
+                    <option value="General">General Stand</option>
+                    <option value="Premium">Premium Stand</option>
+                    <option value="VIP">VIP Stand</option>
+                    <option value="Corporate">Corporate Box</option>
+
                 </select>
 
                 <label for="tickets">Number of Tickets:</label>
-                <input type="number" id="tickets" name="tickets"
-                    min="1" max="10" required>
 
-                <label>Booking Preference:</label>
+                <input
+                    type="number"
+                    id="tickets"
+                    name="tickets"
+                    min="1"
+                    max="10"
+                    placeholder="Enter number of tickets"
+                    required
+                >
+
+                <h3>Additional Preferences</h3>
 
                 <div class="radio-group">
+
                     <label>
-                        <input type="radio" name="preference"
-                            value="Standard" required>
-                        Standard
+                        <input type="radio" name="preference" value="Near Boundary">
+                        Near Boundary
                     </label>
 
                     <label>
-                        <input type="radio" name="preference"
-                            value="Family">
-                        Family
+                        <input type="radio" name="preference" value="Near Pavilion">
+                        Near Pavilion
                     </label>
+
                 </div>
 
-                <button type="submit">Book Tickets</button>
-                <button type="reset">Reset</button>
+                <div class="booking-buttons">
+
+                    <button type="submit">Submit Booking</button>
+
+                    <button type="reset">Reset Form</button>
+
+                </div>
 
             </form>
 
@@ -88,8 +142,10 @@
 
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
+        <p>Enjoy the game. Support your team!</p>
     </footer>
 
 </body>
