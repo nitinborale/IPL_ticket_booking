@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const match = document.getElementById("match");
     const stand = document.getElementById("stand");
     const tickets = document.getElementById("tickets");
+    const bookingForm = document.getElementById("bookingForm");
 
     const summaryMatch = document.getElementById("summaryMatch");
     const summaryStand = document.getElementById("summaryStand");
@@ -127,6 +128,7 @@ if (bookingForm) {
     });
 
 }
+
 
 
     // =================================

@@ -9,7 +9,7 @@
     <title>IPL Ticket Booking Form</title>
 
     <!-- CSS CONNECTION -->
-  <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
@@ -37,8 +37,9 @@
 
             <h2>Ticket Booking Form</h2>
 
-           <form id="bookingForm"></form>
+            <form id="bookingForm">
 
+                <!-- FULL NAME -->
                 <label for="name">Full Name:</label>
 
                 <input
@@ -51,6 +52,7 @@
                     required
                 >
 
+                <!-- EMAIL -->
                 <label for="email">Email Address:</label>
 
                 <input
@@ -61,6 +63,7 @@
                     required
                 >
 
+                <!-- PHONE -->
                 <label for="phone">Phone Number:</label>
 
                 <input
@@ -74,6 +77,7 @@
                     required
                 >
 
+                <!-- MATCH SELECTION -->
                 <label for="match">Select Match:</label>
 
                 <select id="match" name="match" required>
@@ -88,6 +92,7 @@
 
                 </select>
 
+                <!-- STAND CATEGORY -->
                 <label for="stand">Select Stand Category:</label>
 
                 <select id="stand" name="stand" required>
@@ -100,6 +105,7 @@
 
                 </select>
 
+                <!-- TICKET QUANTITY -->
                 <label for="tickets">Number of Tickets:</label>
 
                 <input
@@ -111,43 +117,68 @@
                     placeholder="Enter number of tickets"
                     required
                 >
+
                 <!-- ACTIVITY 7: LIVE BOOKING SUMMARY -->
+                <div class="booking-summary">
 
-<div class="booking-summary">
+                    <h2>Booking Summary</h2>
 
-    <h2>Booking Summary</h2>
+                    <p>
+                        Selected Match:
+                        <span id="summaryMatch">Not Selected</span>
+                    </p>
 
-    <p>Selected Match: <span id="summaryMatch">Not Selected</span></p>
+                    <p>
+                        Stand Category:
+                        <span id="summaryStand">Not Selected</span>
+                    </p>
 
-    <p>Stand Category: <span id="summaryStand">Not Selected</span></p>
+                    <p>
+                        Ticket Quantity:
+                        <span id="summaryTickets">0</span>
+                    </p>
 
-    <p>Ticket Quantity: <span id="summaryTickets">0</span></p>
+                    <h3>
+                        Total Price: ₹<span id="totalPrice">0</span>
+                    </h3>
 
-    <h3>Total Price: ₹<span id="totalPrice">0</span></h3>
+                </div>
 
-</div>
-
+                <!-- ADDITIONAL PREFERENCES -->
                 <h3>Additional Preferences</h3>
 
                 <div class="radio-group">
 
                     <label>
-                        <input type="radio" name="preference" value="Near Boundary">
+                        <input
+                            type="radio"
+                            name="preference"
+                            value="Near Boundary"
+                        >
                         Near Boundary
                     </label>
 
                     <label>
-                        <input type="radio" name="preference" value="Near Pavilion">
+                        <input
+                            type="radio"
+                            name="preference"
+                            value="Near Pavilion"
+                        >
                         Near Pavilion
                     </label>
 
                 </div>
 
+                <!-- BOOKING BUTTONS -->
                 <div class="booking-buttons">
 
-                    <button type="submit">Submit Booking</button>
+                    <button type="submit">
+                        Submit Booking
+                    </button>
 
-                    <button type="reset">Reset Form</button>
+                    <button type="reset">
+                        Reset Form
+                    </button>
 
                 </div>
 
@@ -162,7 +193,9 @@
         <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
         <p>Enjoy the game. Support your team!</p>
     </footer>
-<script src="../app.js"></script>
+
+    <!-- JAVASCRIPT CONNECTION -->
+    <script src="../app.js"></script>
 
 </body>
 </html>
