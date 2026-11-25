@@ -1,557 +1,386 @@
 
-/* =================================
-   1. CSS VARIABLES
-================================= */
-
-:root {
-    --primary: #383fc9;
-    --accent: #4745b2;
-    --background: #fbf4f6;
-    --text: #051616;
-    --white: #faf9fb;
-}
-
-/* =================================
-   2. GENERAL STYLING
-================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+    background: #f4f6fa;
 }
 
-/* =================================
-   3. NAVIGATION BAR
-================================= */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: var(--primary);
-    padding: 18px;
-    z-index: 1000;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
+/* Flexbox Navigation */
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    background: #101d40;
+    color: white;
+    padding: 20px 5%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
     list-style: none;
 }
 
-nav a {
-    color: var(--white);
+.nav-links a {
+    color: white;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #ffd166;
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-/* =================================
-   4. HEADER
-================================= */
-
-header {
-    background: var(--primary);
-    color: var(--white);
+/* Hero Section */
+.hero {
     text-align: center;
-    padding: 110px 20px 35px;
+    padding: 55px 15px;
+    background: #193b78;
+    color: white;
 }
 
-header h1 {
-    font-size: 36px;
+section {
+    padding: 35px 5%;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+button, select {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* CSS Grid Match Cards */
+.match-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.match-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #00000015;
+}
+
+.match-card h3 {
+    margin-bottom: 15px;
+}
+
+.match-card p {
     margin-bottom: 10px;
 }
 
-header p {
-    font-size: 17px;
-}
-
-/* =================================
-   5. MAIN CONTENT
-================================= */
-
-main {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-}
-
-/* =================================
-   6. HERO SECTION
-================================= */
-
-.hero {
-    background: linear-gradient(
-        135deg,
-        #101d40,
-        #3156a3,
-        #6366f1
-    );
-
-    color: var(--white);
-    text-align: center;
-    padding: 90px 25px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-.hero h2 {
-    color: var(--white);
-    font-size: 36px;
-    margin-bottom: 15px;
-    border: none;
-    padding: 0;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-/* =================================
-   7. BUTTONS
-================================= */
-
-button,
-.btn {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 13px 25px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover,
-.btn:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
-}
-
-/* BOOK BUTTON */
-
-.book-btn {
-    background: #e65100;
+.match-card button {
+    background: #193b78;
     color: white;
-    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* List View */
+.match-container.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-container.list-view .match-card {
+    width: 100%;
+}
+
+/* Guidelines Grid */
+.guidelines-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.guideline-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #101d40;
+    color: white;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .match-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guidelines-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        background: #101d40;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .match-container,
+    .guidelines-container {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+}
+
+/* Activity 8 Grid View */
+.match-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Activity 8 List View */
+.match-container.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-container.list-view .match-card {
+    width: 100%;
+}
+
+/* Mobile Navigation */
+.menu-btn {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        background: #101d40;
+        padding: 20px;
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .match-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .match-container {
+        grid-template-columns: 1fr;
+    }
+
+    .guidelines-container {
+        grid-template-columns: 1fr;
+    }
+}
+.book-btn {
+    display: inline-block;
+    background: #193b78;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .book-btn:hover {
-    background: #bf360c;
+    background: #101d40;
 }
 
-/* =================================
-   8. CARDS AND SECTIONS
-================================= */
+/* ===== BOOKING FORM DESIGN ===== */
 
-.card {
-    background: var(--white);
-    padding: 30px;
-    margin: 30px 0;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+.booking-page {
+    background-color: #f4f6fa;
+    font-family: Arial, sans-serif;
 }
 
-.card:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+/* Navigation */
+.booking-page nav {
+    background-color: #101d40;
+    padding: 20px;
 }
 
-/* =================================
-   9. HEADINGS
-================================= */
-
-h2 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    border-left: 5px solid var(--accent);
-    padding-left: 12px;
+.booking-page nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
 }
 
-h3 {
-    color: var(--primary);
-    margin: 20px 0 10px;
-}
-
-/* =================================
-   10. TABLE STYLING
-================================= */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th {
-    background: var(--primary);
-    color: var(--white);
-    padding: 16px;
-    text-align: center;
-}
-
-td {
-    padding: 14px;
-    border: 1px solid #dddddd;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background: #f1f5f9;
-}
-
-tr:hover {
-    background: #e0e7ff;
-}
-
-/* =================================
-   11. FORM STYLING
-================================= */
-
-form {
-    max-width: 650px;
-    margin: 25px auto;
-    padding: 25px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-label {
-    display: block;
+.booking-page nav a {
+    color: white;
+    text-decoration: none;
     font-weight: bold;
-    margin-bottom: 8px;
 }
 
-input,
-select {
+/* Header */
+.booking-page header {
+    background-color: #193b78;
+    color: white;
+    text-align: center;
+    padding: 45px 15px;
+}
+
+/* Main */
+.booking-page main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Form Card */
+.booking-page .booking-container {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Form */
+.booking-page #bookingForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.booking-page #bookingForm label {
+    font-weight: bold;
+}
+
+.booking-page #bookingForm input,
+.booking-page #bookingForm select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #cbd5e1;
-    border-radius: 7px;
-    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 5px rgba(71, 69, 178, 0.3);
+/* Summary */
+.booking-page .booking-summary {
+    grid-column: 1 / -1;
+    background: #eaf0fc;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 15px;
 }
 
-/* =================================
-   12. BOOKING PAGE
-================================= */
-
-.booking-container {
-    margin-top: 40px;
-}
-
-.booking-container h1,
-.booking-container h2 {
-    text-align: center;
-    color: var(--primary);
-}
-
-.booking-container form {
-    background: var(--white);
-}
-
-.booking-container input[type="radio"] {
-    width: auto;
-    margin-right: 8px;
-}
-
-.radio-group {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 20px;
-}
-
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.radio-group input[type="radio"] {
-    width: auto;
-    margin: 0;
-}
-
-.booking-container button {
-    margin: 5px;
-}
-
-/* =================================
-   13. GUIDELINES
-================================= */
-
-#guidelines ul {
-    padding-left: 25px;
-}
-
-#guidelines li {
+.booking-page .booking-summary p {
     margin: 10px 0;
 }
 
-/* =================================
-   14. TOAST NOTIFICATION
-================================= */
+.booking-page .booking-summary h3 {
+    color: #193b78;
+}
 
-#toast {
-    visibility: hidden;
-    opacity: 0;
+/* Preferences */
+.booking-page #bookingForm > h3,
+.booking-page .radio-group {
+    grid-column: 1 / -1;
+}
 
-    min-width: 250px;
-    max-width: 90%;
+.booking-page .radio-group {
+    display: flex;
+    gap: 20px;
+}
 
-    background-color: #222;
+/* Buttons */
+.booking-page .booking-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 15px;
+}
+
+.booking-page .booking-buttons button {
+    background: #193b78;
     color: white;
-
-    text-align: center;
-
-    padding: 15px 20px;
-    border-radius: 8px;
-
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-
-    z-index: 2000;
-
-    transition: opacity 0.4s ease;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-#toast.show {
-    visibility: visible;
-    opacity: 1;
-
-    animation: fadeIn 0.4s;
+.booking-page .booking-buttons button:hover {
+    background: #101d40;
 }
 
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .booking-page #bookingForm {
+        grid-template-columns: 1fr;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .booking-page #bookingForm > * {
+        grid-column: 1;
     }
 
-}
-
-/* =================================
-   15. FOOTER
-================================= */
-
-footer {
-    background: var(--primary);
-    color: var(--white);
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-}
-
-footer p {
-    margin: 5px;
-}
-
-/* =================================
-   16. RESPONSIVE DESIGN
-================================= */
-
-@media (max-width: 768px) {
-
-    header h1 {
-        font-size: 25px;
-    }
-
-    nav {
-        padding: 14px;
-    }
-
-    nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    main {
-        width: 95%;
-    }
-
-    .hero {
-        padding: 60px 15px;
-    }
-
-    .hero h2 {
-        font-size: 25px;
-    }
-
-    .card {
-        padding: 18px;
-    }
-
-    table {
-        font-size: 12px;
-        min-width: 550px;
-    }
-
-    form {
-        padding: 18px;
-    }
-
-    .radio-group {
+    .booking-page nav ul {
         flex-wrap: wrap;
         gap: 15px;
     }
-
-    #toast {
-        right: 5%;
-        bottom: 20px;
-        min-width: 90%;
-    }
-
-}
-
-/* ACTIVITY 3 - BOOKING FORM */
-
-.booking-container {
-    margin-top: 40px;
-}
-
-.booking-container h2 {
-    text-align: center;
-    border-left: none;
-    border-bottom: 3px solid var(--accent);
-    padding-bottom: 12px;
-}
-
-.booking-container form {
-    max-width: 650px;
-}
-
-.booking-container input[type="radio"] {
-    width: auto;
-    margin: 0;
-}
-
-.radio-group {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 15px 0 25px;
-}
-
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.booking-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.booking-buttons button[type="reset"] {
-    background: #555;
-}
-
-.booking-buttons button[type="reset"]:hover {
-    background: #333;
-}
-body {
-    background-color: lightblue;
-}
-
-#toast {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #383fc9;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    z-index: 9999;
-}
-
-#toast.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ACTIVITY 7 - BOOKING SUMMARY */
-
-.booking-summary {
-    background: #f1f5f9;
-    color: #222;
-    padding: 25px;
-    margin-top: 25px;
-    border-radius: 12px;
-    border-left: 5px solid #e63946;
-}
-
-.booking-summary h2 {
-    color: #e63946;
-    margin-bottom: 20px;
-}
-
-.booking-summary p {
-    font-size: 16px;
-    margin: 12px 0;
-}
-
-.booking-summary h3 {
-    margin-top: 20px;
-    color: #e63946;
-    font-size: 22px;
 }

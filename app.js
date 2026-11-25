@@ -1,177 +1,79 @@
 
-alert("APP.JS CONNECTED SUCCESSFULLY!");
-
-
-// REUSABLE TOAST NOTIFICATION
-function showToast(message) {
-
-    let toast = document.getElementById("toast");
-
-    if (!toast) {
-        toast = document.createElement("div");
-        toast.id = "toast";
-        document.body.appendChild(toast);
-    }
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    setTimeout(function () {
-        toast.classList.remove("show");
-    }, 3000);
-}
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =================================
-    // ACTIVITY 7: LIVE BOOKING SUMMARY
-    // =================================
+    console.log("JavaScript Started");
 
-    const match = document.getElementById("match");
-    const stand = document.getElementById("stand");
-    const tickets = document.getElementById("tickets");
-    const bookingForm = document.getElementById("bookingForm");
+    // 1. HAMBURGER MENU
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-    const summaryMatch = document.getElementById("summaryMatch");
-    const summaryStand = document.getElementById("summaryStand");
-    const summaryTickets = document.getElementById("summaryTickets");
-    const totalPrice = document.getElementById("totalPrice");
+    if (menuBtn && navLinks) {
 
-    // Ticket prices
-    const ticketPrices = {
-        "General": 500,
-        "Premium": 1000,
-        "VIP": 2000,
-        "Corporate": 3000
-    };
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+            console.log("Menu clicked");
+        });
 
-    // Function to update booking summary
-    function updateBookingSummary() {
-
-        // Read selected values
-        const selectedMatch = match.value;
-        const selectedStand = stand.value;
-        const quantity = Number(tickets.value);
-
-        // Calculate total price
-        const price = ticketPrices[selectedStand] || 0;
-
-        const validQuantity =
-            Number.isInteger(quantity) &&
-            quantity >= 1 &&
-            quantity <= 10;
-
-        const total = validQuantity ? price * quantity : 0;
-
-        // Display selected details
-        summaryMatch.textContent =
-            selectedMatch || "Not Selected";
-
-        summaryStand.textContent =
-            selectedStand || "Not Selected";
-
-        summaryTickets.textContent =
-            tickets.value || "0";
-
-        totalPrice.textContent = total;
-
-        // Show notification
-        showToast("Booking summary updated!");
     }
 
-    // Add change event listeners
-    if (match && stand && tickets) {
 
-        match.addEventListener("change", updateBookingSummary);
+    // 2. TEAM FILTER
+    const teamFilter = document.getElementById("teamFilter");
+    const matchCards = document.querySelectorAll(".match-card");
 
-        stand.addEventListener("change", updateBookingSummary);
+    if (teamFilter) {
 
-        tickets.addEventListener("input", updateBookingSummary);
+        teamFilter.addEventListener("change", function () {
 
-        // Reset summary when form is reset
-        const bookingForm = document.getElementById("bookingForm");
+            const selectedTeam = teamFilter.value;
 
-        if (bookingForm) {
-            bookingForm.addEventListener("reset", function () {
-                setTimeout(updateBookingSummary, 0);
+            matchCards.forEach(function (card) {
+
+                const teams = card.dataset.team.split(" ");
+
+                if (
+                    selectedTeam === "all" ||
+                    teams.includes(selectedTeam)
+                ) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+
             });
-        }
+
+            console.log("Team selected:", selectedTeam);
+
+        });
+
     }
 
-// ACTIVITY 7: SUBMIT BOOKING
 
-if (bookingForm) {
-
-    bookingForm.addEventListener("submit", function (event) {
-
-        // Prevent page reload
-        event.preventDefault();
-
-        // Get customer details
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-
-        // Show booking confirmation
-        showToast("Booking submitted successfully!");
-
-        alert(
-            "Booking Confirmed!\n\n" +
-            "Name: " + name + "\n" +
-            "Email: " + email + "\n" +
-            "Match: " + match.value + "\n" +
-            "Stand: " + stand.value + "\n" +
-            "Tickets: " + tickets.value + "\n" +
-            "Total Price: ₹" + totalPrice.textContent
-        );
-
-    });
-
-}
+    // 3. GRID AND LIST VIEW
+    const gridBtn = document.getElementById("gridBtn");
+    const listBtn = document.getElementById("listBtn");
+    const matchContainer = document.getElementById("matchContainer");
 
 
+    if (gridBtn && matchContainer) {
 
-    // =================================
-    // EXISTING ACTIVITY: SMOOTH SCROLLING
-    // =================================
-
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-
-        link.addEventListener("click", function (event) {
-
-            const target = document.querySelector(link.getAttribute("href"));
-
-            if (target) {
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-                showToast("Scrolling to " + target.id);
-            }
+        gridBtn.addEventListener("click", function () {
+            matchContainer.classList.remove("list-view");
+            console.log("Grid View activated");
         });
-    });
+
+    }
 
 
-    // =================================
-    // EXISTING ACTIVITY: BOOK BUTTON
-    // =================================
+    if (listBtn && matchContainer) {
 
-    document.querySelectorAll(".book-btn").forEach(function (button) {
-
-        button.addEventListener("click", function (event) {
-
-            event.preventDefault();
-
-            const page = button.href;
-
-            showToast("Opening ticket booking page!");
-
-            setTimeout(function () {
-                window.location.href = page;
-            }, 1500);
+        listBtn.addEventListener("click", function () {
+            matchContainer.classList.add("list-view");
+            console.log("List View activated");
         });
-    });
+
+    }
+
+    console.log("JavaScript functions initialized");
 
 });
