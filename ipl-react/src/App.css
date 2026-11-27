@@ -122,3 +122,31 @@ body {
 .hero h1 {
   color: white;
 }
+
+.booking-section {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 25px;
+  background: white;
+  color: #222;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.booking-section input {
+  width: 90%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.booking-section h2 {
+  color: #d71920;
+}
+
+.booking-section label {
+  display: block;
+  margin-top: 10px;
+}
